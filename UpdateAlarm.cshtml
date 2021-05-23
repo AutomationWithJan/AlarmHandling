@@ -1,0 +1,22 @@
+@page
+@model AlarmHandling.Pages.UpdataAlarmModel
+@{
+    ViewData["Title"] = "Edit Book";
+}
+
+<div>
+    <h1>Edit Alarm</h1>
+    <form name=" AlarmForm" id="AlarmForm" method="post">
+        <input name="AlarmId" type="text" 
+               value="@Model.AlarmDB.AlarmId" hidden />
+
+        Acknowledge Person:
+        <br />
+        <input name="AcknowledgePerson"type="text" 
+               value="@Model.AlarmDB.AcknowledgePerson" required/>
+        <br />
+
+        <input id="SaveButton" type="submit" 
+               value="save" class="btn btn-info"/>
+    </form>
+</div>
