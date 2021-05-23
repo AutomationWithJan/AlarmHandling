@@ -1,0 +1,44 @@
+@page
+@model AlarmHandling.AlarmdataModel
+@{
+    ViewData["Title"] = "Measurement Parameters";
+}
+<div>
+    <h1>Triggered Alarms</h1>
+    Below you see all the triggered Alarms registered in the database:
+    <table class="table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>AlarmId</th>
+                <th>Activation Time</th>
+                <th>Acknowledge</th>
+                <th>Acknowledge Time</th>
+                <th>Acknowledge Person</th>
+                <th>Type of Alarm</th>
+                <th>Tag Id</th>
+                <th>Alarm Limits</th>
+                <th> Description</th>
+                <th> Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Alarm in Model.AlarmParameterList)
+
+            {
+            <tr>
+                <td>@Alarm.AlarmId</td>
+                <td>@Alarm.ActivationTime</td>
+                <td>@Alarm.Acknowledge</td>
+                <td>@Alarm.AcknowledgeTime</td>
+                <td>@Alarm.AcknowledgePerson</td>
+                <td>@Alarm.TypeOfAlarm</td>
+                <td>@Alarm.TagId</td>
+                <td>@Alarm.AlarmLimits</td>
+                <td>@Alarm.TextualDescription</td>
+                <td><a href="./UpdateAlarm?AlarmId=@Alarm.AlarmId"
+                       class="btn btn-danger"role="button">Handle Alarm</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
